@@ -1,23 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Verseway">
   <defs>
-    <linearGradient id="bg" x1="20" y1="16" x2="160" y2="164" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bg" x1="20" y1="20" x2="160" y2="160" gradientUnits="userSpaceOnUse">
       <stop stop-color="#34d399" />
       <stop stop-color="#10b981" />
       <stop offset="1" stop-color="#4f46e5" />
     </linearGradient>
   </defs>
   <rect width="180" height="180" rx="40" fill="url(#bg)" />
-  <path
-    fill="#fff"
-    fill-opacity="0.95"
-    d="M52 42h52c8 0 14 6 14 14v78c0 5-6 8-9 5l-26-17-26 17c-4 3-9-1-9-6V56c0-8 6-14 14-14Z"
-  />
-  <path
-    fill="none"
-    stroke="#fef3c7"
-    stroke-width="7"
-    stroke-linecap="round"
-    d="M122 68c13 8 20 18 20 30s-7 22-20 30M122 68V56M122 128v12"
-  />
-  <circle cx="122" cy="98" r="8" fill="#fef3c7" />
+  <path fill="#fff" fill-opacity="0.95" d="M90 38c-26 0-46 14-46 31v45c0 8 8 14 20 17 6 3 12 3 26 3s20 0 26-3c12-3 20-9 20-17V69c0-17-20-31-46-31Z" />
+  <path fill="#10b981" fill-opacity="0.35" d="M90 38v110c-14 0-26-3-26-3V69c0-17 20-31 26-31Z" />
+  <path fill="none" stroke="#e0e7ff" stroke-width="2.5" stroke-linecap="round" d="M58 78h22M58 92h28M58 106h20M122 78H100M122 92H94M122 106h-20" />
+  <path fill="none" stroke="#c7d2fe" stroke-width="4" stroke-linecap="round" d="M108 115c10-7 16-16 16-28s-6-21-16-28" />
+  <circle cx="118" cy="82" r="7" fill="#fef9c3" />
 </svg>
