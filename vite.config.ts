@@ -12,6 +12,9 @@ const bibleApiProxy = {
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   const scriptureKey = env.SCRIPTURE_API_KEY ?? "";
+  const siteUrl = (env.VITE_SITE_URL ?? "").replace(/\/$/, "");
+  const ogImage = siteUrl ? `${siteUrl}/og-image.svg` : "/og-image.svg";
+  const siteUrlMeta = siteUrl || "/";
 
   const scriptureProxy = {
     "/scripture-api": {
@@ -27,7 +30,15 @@ export default defineConfig(({ mode }) => {
   };
 
   return {
-    plugins: [react()],
+    plugins: [
+      react(),
+      {
+        name: "verseway-share-meta",
+        transformIndexHtml(html) {
+          return html.replaceAll("__OG_IMAGE__", ogImage).replaceAll("__SITE_URL__", siteUrlMeta);
+        },
+      },
+    ],
     server: { proxy: { ...bibleApiProxy, ...scriptureProxy } },
     preview: { proxy: { ...bibleApiProxy, ...scriptureProxy } },
   };
