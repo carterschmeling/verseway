@@ -13,6 +13,7 @@ import {
   curatedTranslation,
   translationMatchesSearch,
 } from "./data/featuredTranslations";
+import { BrandMark } from "./components/BrandMark";
 import { LEARNING_PATH } from "./data/path";
 import {
   awardBadges,
@@ -465,7 +466,7 @@ export function App() {
           className="pointer-events-none fixed inset-x-0 top-[max(5rem,env(safe-area-inset-top))] z-50 flex justify-center px-4"
           role="status"
         >
-          <div className="animate-sp-pop rounded-2xl border border-emerald-200/80 bg-emerald-500 px-5 py-3 text-center text-sm font-extrabold text-white shadow-xl dark:border-emerald-700 dark:bg-emerald-600">
+          <div className="animate-sp-pop rounded-2xl border border-indigo-200/80 bg-gradient-to-r from-emerald-500 to-indigo-600 px-5 py-3 text-center text-sm font-extrabold text-white shadow-xl dark:border-indigo-700">
             {toast}
           </div>
         </div>
@@ -537,7 +538,7 @@ export function App() {
               </div>
               <div className="h-1.5 overflow-hidden rounded-full bg-white/25">
                 <div
-                  className="h-full rounded-full bg-amber-200 transition-all duration-500"
+                  className="h-full rounded-full bg-indigo-200 transition-all duration-500"
                   style={{ width: `${xpBarPct}%` }}
                 />
               </div>
@@ -551,7 +552,7 @@ export function App() {
               </div>
               <div className="h-1.5 overflow-hidden rounded-full bg-white/25">
                 <div
-                  className="h-full rounded-full bg-amber-100/90 transition-all duration-500"
+                  className="h-full rounded-full bg-emerald-100/90 transition-all duration-500"
                   style={{ width: `${Math.min(100, badgeProgress * 100)}%` }}
                 />
               </div>
@@ -689,13 +690,11 @@ export function App() {
       {phase === "signin" && (
         <main className="flex flex-1 flex-col justify-center py-2">
           <div className="mb-6 text-center">
-            <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-indigo-500 text-3xl shadow-lift">
-              📖
-            </div>
+            <BrandMark className="mx-auto mb-3 h-16 w-16 rounded-2xl shadow-lg shadow-indigo-500/25" />
             <h1 className="font-display text-2xl font-bold tracking-tight text-indigo-950 dark:text-indigo-100">
               Verseway
             </h1>
-            <p className="mt-1 text-xs font-bold uppercase tracking-[0.2em] text-indigo-500 dark:text-indigo-400">
+            <p className="brand-gradient-text mt-1 text-xs font-bold uppercase tracking-[0.2em]">
               Walk Scripture · remember it
             </p>
           </div>
@@ -840,15 +839,13 @@ export function App() {
 
                 <div className="relative mx-auto max-w-[360px] px-1 pb-8 pt-1">
                   <div
-                    className="pointer-events-none absolute left-1/2 top-10 bottom-16 w-1.5 -translate-x-1/2 rounded-full bg-gradient-to-b from-slate-200 via-slate-300 to-slate-200 dark:from-slate-600 dark:via-slate-500 dark:to-slate-600"
+                    className="pointer-events-none absolute left-1/2 top-10 bottom-16 w-1.5 -translate-x-1/2 rounded-full bg-gradient-to-b from-emerald-200 via-indigo-200 to-emerald-200 dark:from-emerald-800/60 dark:via-indigo-700/60 dark:to-emerald-800/60"
                     aria-hidden
                   />
-                  <div
-                    className="pointer-events-none absolute right-1 top-[18%] select-none text-5xl opacity-[0.18] dark:opacity-25"
-                    aria-hidden
-                  >
-                    📖
-                  </div>
+                  <BrandMark
+                    className="pointer-events-none absolute right-0 top-[16%] h-20 w-20 opacity-[0.12] dark:opacity-[0.18]"
+                    title=""
+                  />
                   <div
                     className="pointer-events-none absolute bottom-[22%] left-0 select-none text-4xl opacity-[0.14] dark:opacity-20"
                     aria-hidden
@@ -870,7 +867,7 @@ export function App() {
                           >
                             <div className="flex max-w-[46%] flex-col items-center sm:max-w-[48%]">
                               {isStart && (
-                                <span className="mb-1 rounded-lg border border-emerald-200 bg-white px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-emerald-600 shadow-sm dark:border-emerald-700 dark:bg-slate-800 dark:text-emerald-300">
+                                <span className="mb-1 rounded-lg border border-indigo-200 bg-white px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-indigo-600 shadow-sm dark:border-indigo-700 dark:bg-slate-800 dark:text-indigo-300">
                                   Start
                                 </span>
                               )}
@@ -881,9 +878,9 @@ export function App() {
                                 onClick={() => openLesson(i)}
                                 className={`relative flex touch-manipulation items-center justify-center rounded-full font-extrabold shadow-md transition active:scale-95 disabled:cursor-not-allowed ${
                                   done
-                                    ? "h-14 w-14 min-h-[48px] min-w-[48px] bg-amber-400 text-amber-950 ring-2 ring-amber-600/35 dark:bg-amber-500 dark:text-amber-950 dark:ring-amber-800/50"
+                                    ? "h-14 w-14 min-h-[48px] min-w-[48px] bg-indigo-500 text-white ring-2 ring-indigo-300/50 dark:bg-indigo-600 dark:ring-indigo-400/40"
                                     : active
-                                      ? "h-[3.75rem] w-[3.75rem] min-h-[52px] min-w-[52px] scale-105 bg-emerald-500 text-lg text-white shadow-emerald-900/30 ring-4 ring-amber-300/90 dark:bg-emerald-500 dark:ring-amber-400/70"
+                                      ? "h-[3.75rem] w-[3.75rem] min-h-[52px] min-w-[52px] scale-105 bg-gradient-to-br from-emerald-400 to-indigo-600 text-lg text-white shadow-indigo-900/30 ring-4 ring-white/80 dark:ring-indigo-200/60"
                                       : "h-12 w-12 min-h-[48px] min-w-[48px] bg-slate-300 text-slate-600 shadow-inner dark:bg-slate-600 dark:text-slate-300"
                                 }`}
                               >
